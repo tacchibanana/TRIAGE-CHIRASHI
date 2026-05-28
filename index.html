@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>トリアージ・サポーター v2.0 リーフレット</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=BIZ+UDPGothic:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --ink:    #0D1B2A;
+  --navy:   #12294A;
+  --blue:   #1B5299;
+  --accent: #E8922A;
+  --amber:  #F5A623;
+  --paper:  #F7F4EF;
+  --rule:   #D9D3C8;
+  --white:  #FFFFFF;
+
+  /* JTAS準拠カラー */
+  --lv1-bg: #2E86C1;  /* 青：蘇生 */
+  --lv2-bg: #E8302A;  /* 赤：緊急 */
+  --lv3-bg: #F5D623;  /* 黄：準緊急 */
+  --lv4-bg: #27AE60;  /* 緑：低緊急 */
+  --lv5-bg: #FFFFFF;  /* 白：非緊急 */
+  --lv1-dk: #1A1A1A;
+  --lv2-dk: #9B2335;
+  --lv3-dk: #C47D0E;
+  --lv4-dk: #1A7A42;
+  --lv5-dk: #CCCCCC;
+}
+
+body {
+  font-family: 'BIZ UDPGothic', 'Noto Sans JP', sans-serif;
+  background: #BFC3C8;
+  color: var(--ink);
+  width: 210mm;
+  margin: 0 auto;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+.hdr-stripe {
+  height: 6px;
+  /* JTAS 5色ストライプ：黒・赤・橙・緑・白 */
+  background: linear-gradient(
+    90deg,
+    #2E86C1    0%  20%,
+    #E8302A   20%  40%,
+    #F5D84A   40%  60%,
+    #27AE60   60%  80%,
+    #E0E0E0   80% 100%
+  );
+}
+.hdr-body {
+  padding: 20px 32px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  z-index: 1;
+}
+.hdr-body::before {
+  content: '+';
+  position: absolute;
+  font-size: 320px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.025);
+  right: -20px;
+  top: -80px;
+  line-height: 1;
+  font-family: 'Oswald', sans-serif;
+  pointer-events: none;
+}
+.hdr-left {}
+.hdr-eyebrow {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3.5px;
+  color: var(--amber);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.hdr-title {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: white;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+.hdr-title span { color: var(--amber); }
+.hdr-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 12.5px;
+  margin-top: 7px;
+  letter-spacing: 0.3px;
+}
+.hdr-right {
+  text-align: right;
+  flex-shrink: 0;
+}
+.version-tag {
+  background: var(--accent);
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  padding: 4px 14px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.jtas-badge {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 3px;
+  display: block;
+  letter-spacing: 1px;
+}
+
+/* ── HERO BAND ── */
+.hero-band {
+  background: var(--accent);
+  padding: 10px 32px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-band-text {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.5;
+}
+.hero-band-text strong {
+  font-size: 15.5px;
+  display: block;
+}
+.hero-icon { font-size: 28px; flex-shrink: 0; }
+
+/* ── BODY ── */
+.body-wrap {
+  background: var(--paper);
+  padding: 22px 26px 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ── SECTION TITLES ── */
+.sec-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--blue);
+  border-bottom: 2px solid var(--blue);
+  padding-bottom: 5px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.sec-title .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ── CARD BASE ── */
+.card {
+  background: white;
+  border-radius: 6px;
+  padding: 14px 16px;
+  box-shadow: 0 1px 8px rgba(13,27,42,0.07), 0 0 0 1px rgba(0,0,0,0.04);
+}
+
+/* ── PROBLEM (追加セクション) ── */
+.problem-wrap { grid-column: 1 / 3; }
+.problem-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.problem-item {
+  background: #FFF5F5;
+  border: 1px solid #FADBD8;
+  border-radius: 6px;
+  padding: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.prob-emoji { font-size: 28px; margin-bottom: 6px; line-height: 1; }
+.prob-desc { font-size: 11.5px; font-weight: 700; color: #78281F; line-height: 1.5; text-align: left; width: 100%; }
+
+/* ── TARGET ── */
+.target-wrap { grid-column: 1 / 3; }
+.target-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.target-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+.target-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: #F0F4FA;
+  border-radius: 6px;
+  padding: 12px 14px;
+  border-left: 4px solid var(--blue);
+}
+.target-item.b { border-left-color: var(--accent); }
+.target-item.c { border-left-color: #27AE60; background: #F0FAF4; }
+.t-emoji { font-size: 26px; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+.t-head { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 4px; line-height: 1.5; }
+.t-head em { font-style: normal; color: var(--accent); }
+.t-desc { font-size: 11px; color: #555; line-height: 1.6; }
+
+/* ── FLOW ── */
+.flow-wrap { grid-column: 1 / 3; }
+.flow-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  position: relative;
+}
+.flow-steps::before {
+  content: '';
+  position: absolute;
+  top: 21px;
+  left: calc(10% + 16px);
+  right: calc(10% + 16px);
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--rule) 0 6px, transparent 6px 10px);
+}
+.flow-step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 6px; }
+.flow-num {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1;
+  margin-bottom: 7px;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.flow-step:nth-child(2) .flow-num { background: #2E86C1; }
+.flow-step:nth-child(3) .flow-num { background: #1E8449; }
+.flow-step:nth-child(4) .flow-num { background: var(--accent); }
+.flow-step:nth-child(5) .flow-num { background: #C0392B; }
+.flow-emoji { font-size: 17px; margin-bottom: 4px; }
+.flow-title { font-size: 11.5px; font-weight: 700; color: var(--navy); margin-bottom: 2px; line-height: 1.35; }
+.flow-desc { font-size: 9.5px; color: #666; line-height: 1.5; }
+
+/* ── TRIAGE LEVELS  (JTAS準拠カラー) ── */
+.levels-wrap { grid-column: 1 / 2; }
+.level-list { display: flex; flex-direction: column; gap: 5px; }
+.lv {
+  display: flex;
+  align-items: stretch;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1.5px solid rgba(0,0,0,0.08);
+}
+.lv-num {
+  width: 36px;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  padding: 7px 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lv-body {
+  flex: 1;
+  padding: 6px 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lv-name { font-size: 12.5px; font-weight: 700; }
+.lv-sub { font-size: 9.5px; opacity: 0.78; margin-top: 1px; }
+.lv-time { font-size: 10.5px; font-weight: 700; text-align: right; white-space: nowrap; }
+
+/* Lv1 青 */
+.lv1 .lv-num { background: #1A6FA8; color: white; }
+.lv1 .lv-body { background: #2E86C1; color: white; }
+
+/* Lv2 赤 */
+.lv2 .lv-num { background: #9B1D1D; color: white; }
+.lv2 .lv-body { background: #E8302A; color: white; }
+
+/* Lv3 橙 */
+.lv3 .lv-num { background: #C8A800; color: white; }
+.lv3 .lv-body { background: #F5D84A; color: #1A1A1A; }
+
+/* Lv4 緑 */
+.lv4 .lv-num { background: #1A7A42; color: white; }
+.lv4 .lv-body { background: #27AE60; color: white; }
+
+/* Lv5 白 */
+.lv5 .lv-num { background: #AAAAAA; color: white; }
+.lv5 .lv-body { background: #F5F5F5; color: #1A1A1A; border-top: none; }
+
+/* ── FEATURES ── */
+.features-wrap { grid-column: 2 / 3; }
+.feat-list { display: flex; flex-direction: column; gap: 8px; }
+.feat {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  padding: 9px 11px;
+  background: #F7F4EF;
+  border-radius: 5px;
+  border-left: 3px solid var(--blue);
+}
+.feat.hot { border-left-color: var(--accent); background: #FFF8F0; }
+.feat-icon { font-size: 19px; flex-shrink: 0; margin-top: 1px; line-height: 1; }
+.feat-title { font-size: 12px; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+.feat-desc { font-size: 10px; color: #555; line-height: 1.6; }
+
+/* ── BOTTOM ROW ── */
+.bottom-row { grid-column: 1 / 3; display: grid; grid-template-columns: 1.35fr 1fr; gap: 14px; }
+
+/* ── MOCK SCREENS ── */
+.card {
+  background: white;
+  border-radius: 6px;
+  padding: 14px 16px;
+  box-shadow: 0 1px 8px rgba(13,27,42,0.07), 0 0 0 1px rgba(0,0,0,0.04);
+}
+.mock-screens {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  background: #E2E8F2;
+  border-radius: 6px;
+}
+.phone {
+  flex: 1;
+  background: white;
+  border-radius: 10px;
+  border: 1.5px solid #C0CAD8;
+  overflow: hidden;
+  box-shadow: 0 5px 16px rgba(0,0,0,0.13);
+}
+.phone-hdr {
+  background: var(--navy);
+  padding: 5px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 7.5px;
+  font-weight: 700;
+  color: white;
+}
+.phone-hdr .ver { color: rgba(255,255,255,0.45); }
+.phone-body { padding: 7px 6px; }
+.p-sec {
+  font-size: 7.5px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+  padding-left: 4px;
+  border-left: 2.5px solid var(--accent);
+}
+.p-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 6px; }
+.p-btn {
+  background: #F2F4F8;
+  border: 1px solid #DDE3EC;
+  border-radius: 4px;
+  padding: 4px 3px;
+  font-size: 6.5px;
+  text-align: center;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.p-btn.sel { background: #F5D84A; color: #1A1A1A; border-color: #C8A800; font-weight: 700; }
+.p-result {
+  background: #F5D84A;
+  border-radius: 5px;
+  padding: 6px 5px;
+  text-align: center;
+  margin-top: 3px;
+  border: 1.5px solid #C8A800;
+}
+.p-result-lv { font-size: 11px; font-weight: 900; color: #1A1A1A; }
+.p-result-msg { font-size: 7px; color: rgba(0,0,0,0.6); margin-top: 1px; font-weight: 700; }
+
+.p-soap {
+  background: #F7F9FC;
+  border: 1px solid #DDE3EC;
+  border-radius: 5px;
+  padding: 6px;
+  font-size: 6.5px;
+  line-height: 1.75;
+  color: #2C2C2C;
+}
+.p-soap-title {
+  font-size: 7.5px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  padding-left: 4px;
+  border-left: 2.5px solid var(--blue);
+}
+
+/* ── PRICING ── */
+.pricing-card {
+  background: var(--navy);
+  color: white;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(18,41,74,0.3);
+}
+.pricing-top {
+  padding: 16px 18px 12px;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+}
+.pricing-top::after {
+  content: '¥';
+  position: absolute;
+  right: -10px; top: -20px;
+  font-size: 110px;
+  font-family: 'Oswald', sans-serif;
+  color: rgba(255,255,255,0.04);
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+.plan-eyebrow {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  color: var(--amber);
+  margin-bottom: 7px;
+}
+.plan-name {
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+.plan-name span { color: var(--amber); }
+
+.plan-free-box {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 5px;
+  padding: 8px 11px;
+  margin-bottom: 9px;
+}
+.plan-free-label { font-size: 9px; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
+.plan-free-val { font-size: 12.5px; font-weight: 700; }
+.plan-free-limit { font-size: 9px; color: rgba(255,255,255,0.4); margin-top: 1px; }
+
+.plan-paid-box {
+  background: var(--accent);
+  border-radius: 5px;
+  padding: 10px 11px;
+  margin-bottom: 10px;
+}
+.plan-paid-label { font-size: 9px; color: rgba(255,255,255,0.8); margin-bottom: 3px; }
+.plan-price {
+  font-family: 'Oswald', sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+}
+.plan-price sub { font-size: 12px; font-family: 'Noto Sans JP', sans-serif; }
+.plan-price sup { font-size: 13px; }
+.plan-price-note { font-size: 9px; color: rgba(255,255,255,0.8); margin-top: 3px; }
+
+.plan-perks { display: flex; flex-direction: column; gap: 5px; }
+.perk {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  font-size: 10.5px;
+  color: rgba(255,255,255,0.85);
+}
+.perk::before { content: '✓'; color: var(--amber); font-weight: 700; flex-shrink: 0; }
+
+/* ── QR BOTTOM ── */
+.pricing-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 12px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.qr-canvas-wrap {
+  width: 64px; height: 64px;
+  background: white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 4px;
+}
+#qr-code canvas,
+#qr-code img {
+  width: 56px !important;
+  height: 56px !important;
+}
+.qr-info { display: flex; flex-direction: column; justify-content: center; }
+.qr-label { font-size: 9px; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+.qr-scan-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  padding: 8px 13px;
+  border-radius: 5px;
+  margin-bottom: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  transition: opacity 0.15s;
+}
+.qr-scan-link:hover { opacity: 0.85; }
+.qr-scan-icon { font-size: 17px; line-height: 1; }
+.qr-scan-text { font-size: 12.5px; font-weight: 700; color: white; }
+.qr-arrow { font-size: 13px; opacity: 0.75; color: white; }
+.qr-note { font-size: 9px; color: rgba(255,255,255,0.35); margin-top: 2px; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.4);
+  font-size: 9px;
+  text-align: center;
+  padding: 7px 24px;
+  line-height: 1.7;
+  letter-spacing: 0.3px;
+}
+footer strong { color: rgba(255,255,255,0.7); }
+
+@media print { body { width: 210mm; margin: 0; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr-stripe"></div>
+  <div class="hdr-body">
+    <div class="hdr-left">
+      <div class="hdr-eyebrow">JTAS-Based Triage Support App</div>
+      <div class="hdr-title">トリアージ・<span>サポーター</span></div>
+      <div class="hdr-sub">症状をタップ → バイタル入力 → 即座に判定。現場の「迷い」をゼロにする。</div>
+    </div>
+    <div class="hdr-right">
+      <div class="version-tag">VERSION 2.0</div>
+      <span class="jtas-badge">JTAS 準拠 ／ 5 LEVELS</span>
+    </div>
+  </div>
+</header>
+
+<div class="hero-band">
+  <div class="hero-icon">🩺</div>
+  <div class="hero-band-text">
+    <strong>判断に迷う夜でも、一人のオンコールでも、救急の現場でも。あなたの隣に、頼れる判断サポーターを。</strong>
+    高齢者施設・訪問看護のオンコール対応 ／ トリアージに自信がない方 ／ 救急配属の新人看護師 ／ スタッフ教育まで完全対応
+  </div>
+</div>
+
+<div class="body-wrap">
+
+  <div class="problem-wrap">
+    <div class="card">
+      <div class="sec-title"><span class="dot"></span>介護・医療現場の現状 ─ こんなお困りごとはありませんか？</div>
+      <div class="problem-grid">
+        <div class="problem-item">
+          <div class="prob-emoji">❓</div>
+          <div class="prob-desc">急変時、何を優先して見ればよいか迷う</div>
+        </div>
+        <div class="problem-item">
+          <div class="prob-emoji">👥</div>
+          <div class="prob-desc">職員によって判断にばらつきがある</div>
+        </div>
+        <div class="problem-item">
+          <div class="prob-emoji">💬</div>
+          <div class="prob-desc">看護師・医師への報告内容がまとまらない</div>
+        </div>
+        <div class="problem-item">
+          <div class="prob-emoji">🚑</div>
+          <div class="prob-desc">救急受診か経過観察かの判断が遅れやすい</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="target-wrap">
+    <div class="card">
+      <div class="sec-title"><span class="dot"></span>こんな方におすすめ ─ 3つのシーン</div>
+      <div class="target-grid three">
+        <div class="target-item">
+          <div class="t-emoji">😰</div>
+          <div>
+            <div class="t-head">トリアージ、<em>正直自信がない…</em></div>
+            <div class="t-desc">判断ミスが怖い。症状が複数あると迷う。JTASの基準を全部覚えられない。そんな方でもタップひとつで根拠ある判定ができます。</div>
+          </div>
+        </div>
+        <div class="target-item b">
+          <div class="t-emoji">📱</div>
+          <div>
+            <div class="t-head">夜間オンコール、<em>一人で判断が不安…</em></div>
+            <div class="t-desc">高齢者施設・訪問看護の深夜対応。「これ、何レベル？」と迷ったとき、即座に判定＋SOAP報告書作成まで一気に完了。</div>
+          </div>
+        </div>
+        <div class="target-item c">
+          <div class="t-emoji">🌱</div>
+          <div>
+            <div class="t-head">救急配属の新人、<em>使いながら覚えたい！</em></div>
+            <div class="t-desc">実際の症例でアプリを操作するたびにJTASの思考回路が身につく。「なぜこのレベルなのか」が自然とわかるようになる実践型学習ツール。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-wrap">
+    <div class="card">
+      <div class="sec-title"><span class="dot"></span>使い方 ─ たった５ステップ</div>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-emoji">👆</div>
+          <div class="flow-title">緊急症状を<br>タップ選択</div>
+          <div class="flow-desc">該当する症状ボタンを選ぶだけ</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-emoji">🧠</div>
+          <div class="flow-title">意識状態<br>（ACVPU）</div>
+          <div class="flow-desc">5段階の意識レベルを選択</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-emoji">🩺</div>
+          <div class="flow-title">バイタルを<br>入力</div>
+          <div class="flow-desc">BT / RR / SpO2 / HR / sBP</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div class="flow-emoji">🚦</div>
+          <div class="flow-title">レベル<br>即時判定</div>
+          <div class="flow-desc">1〜5のJTASレベルで表示</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">5</div>
+          <div class="flow-emoji">📋</div>
+          <div class="flow-title">SOAP記録<br>コピーして完了</div>
+          <div class="flow-desc">そのまま医師報告に使える</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="levels-wrap">
+    <div class="card">
+      <div class="sec-title"><span class="dot"></span>JTAS 5段階レベル判定</div>
+      <div class="level-list">
+        <div class="lv lv1">
+          <div class="lv-num">1</div>
+          <div class="lv-body">
+            <div><div class="lv-name">蘇生（Resuscitation）</div><div class="lv-sub">心停止・呼吸停止・重篤な意識障害</div></div>
+            <div class="lv-time">即時対応</div>
+          </div>
+        </div>
+        <div class="lv lv2">
+          <div class="lv-num">2</div>
+          <div class="lv-body">
+            <div><div class="lv-name">緊急（Emergent）</div><div class="lv-sub">突然の意識消失・激しい胸痛・高エネルギー外傷</div></div>
+            <div class="lv-time">15分以内</div>
+          </div>
+        </div>
+        <div class="lv lv3">
+          <div class="lv-num">3</div>
+          <div class="lv-body">
+            <div><div class="lv-name">準緊急（Urgent）</div><div class="lv-sub">激しい腹痛・中等度呼吸困難・39℃以上の高熱</div></div>
+            <div class="lv-time">30分以内</div>
+          </div>
+        </div>
+        <div class="lv lv4">
+          <div class="lv-num">4</div>
+          <div class="lv-body">
+            <div><div class="lv-name">低緊急（Less Urgent）</div><div class="lv-sub">軽度の腹痛・慢性疾患の増増・軽症外傷</div></div>
+            <div class="lv-time">60分以内</div>
+          </div>
+        </div>
+        <div class="lv lv5">
+          <div class="lv-num">5</div>
+          <div class="lv-body">
+            <div><div class="lv-name">非緊急（Non-Urgent）</div><div class="lv-sub">軽微な症状・経過観察・定期的な問題</div></div>
+            <div class="lv-time">120分以内</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-wrap">
+    <div class="card">
+      <div class="sec-title"><span class="dot"></span>主な機能・特徴</div>
+      <div class="feat-list">
+        <div class="feat hot">
+          <div class="feat-icon">⚡</div>
+          <div>
+            <div class="feat-title">タップ＋バイタルで瞬時判定</div>
+            <div class="feat-desc">緊急・準緊急症状のボタン選択とACVPU・バイタル入力だけでレベルが即座に決まります。計算不要。</div>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">📋</div>
+          <div>
+            <div class="feat-title">SOAP記録を自動生成・コピー</div>
+            <div class="feat-desc">判定と同時にSOAP形式の報告書が完成。「コピー」ボタン一押しで医師報告・電子カルテに貼り付け可能。</div>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">🏥</div>
+          <div>
+            <div class="feat-title">施設の取り決めメモを表示</div>
+            <div class="feat-desc">レベルごとに各施設で設定した対応指針・連絡先を自動表示。現場ごとのプロトコルに対応。</div>
+          </div>
+        </div>
+        <div class="feat hot">
+          <div class="feat-icon">🎓</div>
+          <div>
+            <div class="feat-title">使うほど学べる教育ツール</div>
+            <div class="feat-desc">日々使うことでJTASの考え方が自然と身につく。新人研修・継続教育・スタッフ勉強会にも活用できます。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-row">
+
+    <div class="card">
+      <div class="sec-title"><span class="dot"></span>アプリ画面プレビュー</div>
+      <div class="mock-screens">
+        <div class="phone">
+          <div class="phone-hdr">
+            <span>🩺 トリアージ・サポーター</span>
+            <span class="ver">v2.0</span>
+          </div>
+          <div class="phone-body">
+            <div class="p-sec">★ 緊急症状</div>
+            <div class="p-grid">
+              <div class="p-btn">突然の意識消失・痙攣</div>
+              <div class="p-btn">突然の麻痺・呂律不良</div>
+              <div class="p-btn">内因：突然の激しい胸痛</div>
+              <div class="p-btn">外因：高エネルギー外傷</div>
+            </div>
+            <div class="p-sec">★ 準緊急症状</div>
+            <div class="p-grid">
+              <div class="p-btn sel">✓ 内因：激しい腹痛</div>
+              <div class="p-btn">内因：持続する嘔吐</div>
+              <div class="p-btn">中等度の呼吸困難</div>
+              <div class="p-btn">39℃以上の高熱</div>
+            </div>
+            <div class="p-result">
+              <div class="p-result-lv">レベル３（準緊急：黄）</div>
+              <div class="p-result-msg">早めの医師報告・観察強化</div>
+            </div>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="phone-hdr">
+            <span>📝 生成された記録</span>
+            <span class="ver">SOAP</span>
+          </div>
+          <div class="phone-body">
+            <div class="p-soap-title">生成された記録（SOAP）</div>
+            <div class="p-soap">
+              【トリアージ報告書】<br>
+              判定：レベル３（準緊急：黄）<br>
+              <br>
+              S：「昨日からお腹が痛い。刺身食べた。」<br>
+              <br>
+              O：<br>
+              ・意識：Confusion(混乱/不穏)<br>
+              ・移動：変化なし<br>
+              ・BT 37.6℃ / RR 22<br>
+              ・SpO2 96% / HR 98 / sBP 122<br>
+              <br>
+              A：準緊急。腹部症状の精査必要。<br>
+              P：Dr.報告・観察強化
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-card">
+      <div class="pricing-top">
+        <div class="plan-eyebrow">SUBSCRIPTION PLAN</div>
+        <div class="plan-name">解除コードで<br><span>フル機能</span>を開放</div>
+
+        <div class="plan-free-box">
+          <div class="plan-free-label">🆓 無料プラン（まずは試す）</div>
+          <div class="plan-free-val">記録生成：月5回まで</div>
+          <div class="plan-free-limit">トリアージ判定機能は無制限で使えます</div>
+        </div>
+
+        <div class="plan-paid-box">
+          <div class="plan-paid-label">⭐ 有料プラン（解除コード）</div>
+          <div class="plan-price"><sup>¥</sup>———<sub>/月</sub></div>
+          <div class="plan-price-note">記録生成 無制限 ／ 施設カスタマイズ ／ 全機能開放</div>
+        </div>
+
+        <div class="plan-perks">
+          <div class="perk">SOAP記録生成が無制限に</div>
+          <div class="perk">施設ごとの取り決めメモを設定</div>
+          <div class="perk">インストール不要・ブラウザで動く</div>
+          <div class="perk">スマホ・タブレット・PC完全対応</div>
+          <div class="perk">チーム・施設単位でのご利用も可</div>
+        </div>
+      </div>
+
+      <div class="pricing-bottom">
+        <div class="qr-canvas-wrap">
+          <div id="qr-code"></div>
+        </div>
+        <div class="qr-info">
+          <div class="qr-label">QRコードを読み取ってアクセス</div>
+          <a href="https://tacchibanana.github.io/DG-TRIAGE-TOOL/" target="_blank" class="qr-scan-link">
+            <span class="qr-scan-icon">📲</span>
+            <span class="qr-scan-text">今すぐ無料で試す</span>
+            <span class="qr-arrow">→</span>
+          </a>
+          <div class="qr-note">© 2026 TACCHIBANANA</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <strong>トリアージ・サポーター v2.0</strong>　｜　JTAS（日本版トリアージ基準）準拠　｜　© 2026 TACCHIBANANA
+  <br>⚠️ 本ツールは医療機器・診断プログラムではありません。電子メモツールとして判断の補助に使用してください。最終的な医療判断は必ず医師・所属施設のプロトコルに従ってください。
+</footer>
+
+<script>
+  // QRコード生成
+  new QRCode(document.getElementById("qr-code"), {
+    text: "https://tacchibanana.github.io/DG-TRIAGE-TOOL/",
+    width: 56,
+    height: 56,
+    colorDark: "#12294A",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.M
+  });
+</script>
+</body>
+</html>
