@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>トリアージ・サポーター v2.0 リーフレット</title>
+<title>急変時対応サポート（トリアージ・サポーター v2.0）リーフレット</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=BIZ+UDPGothic:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
@@ -435,7 +435,7 @@ header {
   flex: 1;
 }
 .pricing-top::after {
-  content: '¥';
+  content: '';
   position: absolute;
   right: -10px; top: -20px;
   font-size: 110px;
@@ -564,13 +564,13 @@ footer strong { color: rgba(255,255,255,0.7); }
   <div class="hdr-stripe"></div>
   <div class="hdr-body">
     <div class="hdr-left">
-      <div class="hdr-eyebrow">JTAS-Based Triage Support App</div>
-      <div class="hdr-title">トリアージ・<span>サポーター</span></div>
-      <div class="hdr-sub">症状をタップ → バイタル入力 → 即座に判定。現場の「迷い」をゼロにする。</div>
+      <div class="hdr-eyebrow">Triage Check Memo &amp; Report Support App</div>
+      <div class="hdr-title">急変時対応<span>サポート</span></div>
+      <div class="hdr-sub">症状をタップ → 意識・バイタルを入力 → 緊急度の目安と、施設規定に沿った対応の方向性を表示。SOAP記録までその場で作成。</div>
     </div>
     <div class="hdr-right">
       <div class="version-tag">VERSION 2.0</div>
-      <span class="jtas-badge">JTAS 準拠 ／ 5 LEVELS</span>
+      <span class="jtas-badge">緊急度の目安 ／ 5 LEVELS</span>
     </div>
   </div>
 </header>
@@ -578,8 +578,8 @@ footer strong { color: rgba(255,255,255,0.7); }
 <div class="hero-band">
   <div class="hero-icon">🩺</div>
   <div class="hero-band-text">
-    <strong>判断に迷う夜でも、一人のオンコールでも、救急の現場でも。あなたの隣に、頼れる判断サポーターを。</strong>
-    高齢者施設・訪問看護のオンコール対応 ／ トリアージに自信がない方 ／ 救急配属の新人看護師 ／ スタッフ教育まで完全対応
+    <strong>判断に迷う夜でも、一人のオンコールでも。何を確認し、どう伝えるかを、施設の規定に沿って整理します。</strong>
+    高齢者施設・訪問看護のオンコール対応 ／ 急変時の判断に自信がない方 ／ 新人看護師・介護職員 ／ スタッフ教育まで
   </div>
 </div>
 
@@ -616,22 +616,22 @@ footer strong { color: rgba(255,255,255,0.7); }
         <div class="target-item">
           <div class="t-emoji">😰</div>
           <div>
-            <div class="t-head">トリアージ、<em>正直自信がない…</em></div>
-            <div class="t-desc">判断ミスが怖い。症状が複数あると迷う。JTASの基準を全部覚えられない。そんな方でもタップひとつで根拠ある判定ができます。</div>
+            <div class="t-head">急変時の判断、<em>正直自信がない…</em></div>
+            <div class="t-desc">症状が複数あると迷う。基準を全部覚えられない。そんなときも、症状のタップとバイタル入力で緊急度の目安を確認できます。</div>
           </div>
         </div>
         <div class="target-item b">
           <div class="t-emoji">📱</div>
           <div>
             <div class="t-head">夜間オンコール、<em>一人で判断が不安…</em></div>
-            <div class="t-desc">高齢者施設・訪問看護の深夜対応。「これ、何レベル？」と迷ったとき、即座に判定＋SOAP報告書作成まで一気に完了。</div>
+            <div class="t-desc">高齢者施設・訪問看護の深夜対応。目安と対応の方向性を確認し、SOAP形式の記録をコピーして看護師・医師へ伝えられます。</div>
           </div>
         </div>
         <div class="target-item c">
           <div class="t-emoji">🌱</div>
           <div>
-            <div class="t-head">救急配属の新人、<em>使いながら覚えたい！</em></div>
-            <div class="t-desc">実際の症例でアプリを操作するたびにJTASの思考回路が身につく。「なぜこのレベルなのか」が自然とわかるようになる実践型学習ツール。</div>
+            <div class="t-head">新人スタッフ、<em>使いながら覚えたい！</em></div>
+            <div class="t-desc">意識（ACVPU）の各段階に説明つき。歩行状態の変化や「重症感（Sick）」など、何を見るべきかが使いながら身につきます。</div>
           </div>
         </div>
       </div>
@@ -645,32 +645,32 @@ footer strong { color: rgba(255,255,255,0.7); }
         <div class="flow-step">
           <div class="flow-num">1</div>
           <div class="flow-emoji">👆</div>
-          <div class="flow-title">緊急症状を<br>タップ選択</div>
+          <div class="flow-title">緊急・準緊急<br>症状をタップ</div>
           <div class="flow-desc">該当する症状ボタンを選ぶだけ</div>
         </div>
         <div class="flow-step">
           <div class="flow-num">2</div>
-          <div class="flow-emoji">🧠</div>
-          <div class="flow-title">意識状態<br>（ACVPU）</div>
-          <div class="flow-desc">5段階の意識レベルを選択</div>
+          <div class="flow-emoji">🚶</div>
+          <div class="flow-title">歩行状態と<br>自覚症状</div>
+          <div class="flow-desc">移動手段の変化と本人の訴え</div>
         </div>
         <div class="flow-step">
           <div class="flow-num">3</div>
-          <div class="flow-emoji">🩺</div>
-          <div class="flow-title">バイタルを<br>入力</div>
-          <div class="flow-desc">BT / RR / SpO2 / HR / sBP</div>
+          <div class="flow-emoji">🧠</div>
+          <div class="flow-title">意識・<br>バイタルを入力</div>
+          <div class="flow-desc">ACVPU / RR / SpO2 / HR / sBP / BT</div>
         </div>
         <div class="flow-step">
           <div class="flow-num">4</div>
           <div class="flow-emoji">🚦</div>
-          <div class="flow-title">レベル<br>即時判定</div>
-          <div class="flow-desc">1〜5のJTASレベルで表示</div>
+          <div class="flow-title">緊急度の<br>目安を表示</div>
+          <div class="flow-desc">レベル1〜5と対応の方向性</div>
         </div>
         <div class="flow-step">
           <div class="flow-num">5</div>
           <div class="flow-emoji">📋</div>
           <div class="flow-title">SOAP記録<br>コピーして完了</div>
-          <div class="flow-desc">そのまま医師報告に使える</div>
+          <div class="flow-desc">施設の報告ルートで報告</div>
         </div>
       </div>
     </div>
@@ -678,41 +678,41 @@ footer strong { color: rgba(255,255,255,0.7); }
 
   <div class="levels-wrap">
     <div class="card">
-      <div class="sec-title"><span class="dot"></span>JTAS 5段階レベル判定</div>
+      <div class="sec-title"><span class="dot"></span>緊急度の目安 5段階と対応の方向性</div>
       <div class="level-list">
         <div class="lv lv1">
           <div class="lv-num">1</div>
           <div class="lv-body">
-            <div><div class="lv-name">蘇生（Resuscitation）</div><div class="lv-sub">心停止・呼吸停止・重篤な意識障害</div></div>
-            <div class="lv-time">即時対応</div>
+            <div><div class="lv-name">蘇生</div><div class="lv-sub">施設規定に従い直ちに医師報告・救急要請</div></div>
+            <div class="lv-time">レベル1相当</div>
           </div>
         </div>
         <div class="lv lv2">
           <div class="lv-num">2</div>
           <div class="lv-body">
-            <div><div class="lv-name">緊急（Emergent）</div><div class="lv-sub">突然の意識消失・激しい胸痛・高エネルギー外傷</div></div>
-            <div class="lv-time">15分以内</div>
+            <div><div class="lv-name">緊急</div><div class="lv-sub">施設規定に従い至急の受診調整・報告</div></div>
+            <div class="lv-time">レベル2相当</div>
           </div>
         </div>
         <div class="lv lv3">
           <div class="lv-num">3</div>
           <div class="lv-body">
-            <div><div class="lv-name">準緊急（Urgent）</div><div class="lv-sub">激しい腹痛・中等度呼吸困難・39℃以上の高熱</div></div>
-            <div class="lv-time">30分以内</div>
+            <div><div class="lv-name">準緊急</div><div class="lv-sub">施設規定に従い早めの報告・観察強化</div></div>
+            <div class="lv-time">レベル3相当</div>
           </div>
         </div>
         <div class="lv lv4">
           <div class="lv-num">4</div>
           <div class="lv-body">
-            <div><div class="lv-name">低緊急（Less Urgent）</div><div class="lv-sub">軽度の腹痛・慢性疾患の増増・軽症外傷</div></div>
-            <div class="lv-time">60分以内</div>
+            <div><div class="lv-name">低緊急</div><div class="lv-sub">通常観察・必要時経過報告</div></div>
+            <div class="lv-time">レベル4相当</div>
           </div>
         </div>
         <div class="lv lv5">
           <div class="lv-num">5</div>
           <div class="lv-body">
-            <div><div class="lv-name">非緊急（Non-Urgent）</div><div class="lv-sub">軽微な症状・経過観察・定期的な問題</div></div>
-            <div class="lv-time">120分以内</div>
+            <div><div class="lv-name">非緊急</div><div class="lv-sub">通常通りの対応</div></div>
+            <div class="lv-time">レベル5相当</div>
           </div>
         </div>
       </div>
@@ -726,29 +726,29 @@ footer strong { color: rgba(255,255,255,0.7); }
         <div class="feat hot">
           <div class="feat-icon">⚡</div>
           <div>
-            <div class="feat-title">タップ＋バイタルで瞬時判定</div>
-            <div class="feat-desc">緊急・準緊急症状のボタン選択とACVPU・バイタル入力だけでレベルが即座に決まります。計算不要。</div>
+            <div class="feat-title">タップ＋バイタルで目安を表示</div>
+            <div class="feat-desc">緊急・準緊急症状の選択、意識（ACVPU）、バイタル、橈骨動脈の触知や重症感の有無から、トリアージ基準に照らした緊急度の目安を表示します。</div>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">🏥</div>
+          <div>
+            <div class="feat-title">施設規定に沿った対応の方向性</div>
+            <div class="feat-desc">目安ごとに「施設規定に従い至急の受診調整・報告」などの対応の方向性を表示。最終的な対応は所属施設のプロトコルで決めます。</div>
           </div>
         </div>
         <div class="feat">
           <div class="feat-icon">📋</div>
           <div>
             <div class="feat-title">SOAP記録を自動生成・コピー</div>
-            <div class="feat-desc">判定と同時にSOAP形式の報告書が完成。「コピー」ボタン一押しで医師報告・電子カルテに貼り付け可能。</div>
-          </div>
-        </div>
-        <div class="feat">
-          <div class="feat-icon">🏥</div>
-          <div>
-            <div class="feat-title">施設の取り決めメモを表示</div>
-            <div class="feat-desc">レベルごとに各施設で設定した対応指針・連絡先を自動表示。現場ごとのプロトコルに対応。</div>
+            <div class="feat-desc">意識・歩行状態・バイタル・選択症状・全体印象をSOAP形式の確認メモに整理。コピーして報告や記録に使えます。</div>
           </div>
         </div>
         <div class="feat hot">
           <div class="feat-icon">🎓</div>
           <div>
             <div class="feat-title">使うほど学べる教育ツール</div>
-            <div class="feat-desc">日々使うことでJTASの考え方が自然と身につく。新人研修・継続教育・スタッフ勉強会にも活用できます。</div>
+            <div class="feat-desc">急変時に確認すべき項目が画面の順番で身につきます。新人研修・継続教育・スタッフ勉強会にも活用できます。</div>
           </div>
         </div>
       </div>
@@ -756,7 +756,6 @@ footer strong { color: rgba(255,255,255,0.7); }
   </div>
 
   <div class="bottom-row">
-
     <div class="card">
       <div class="sec-title"><span class="dot"></span>アプリ画面プレビュー</div>
       <div class="mock-screens">
@@ -781,8 +780,8 @@ footer strong { color: rgba(255,255,255,0.7); }
               <div class="p-btn">39℃以上の高熱</div>
             </div>
             <div class="p-result">
-              <div class="p-result-lv">レベル３（準緊急：黄）</div>
-              <div class="p-result-msg">早めの医師報告・観察強化</div>
+              <div class="p-result-lv">目安: レベル 3相当 (準緊急)</div>
+              <div class="p-result-msg">施設規定に従い早めの報告・観察強化</div>
             </div>
           </div>
         </div>
@@ -794,19 +793,19 @@ footer strong { color: rgba(255,255,255,0.7); }
           <div class="phone-body">
             <div class="p-soap-title">生成された記録（SOAP）</div>
             <div class="p-soap">
-              【トリアージ報告書】<br>
-              判定：レベル３（準緊急：黄）<br>
+              【トリアージ基準 確認メモ】<br>
+              基準該当目安：レベル 3相当 (準緊急)<br>
               <br>
-              S：「昨日からお腹が痛い。刺身食べた。」<br>
+              S：「昨日からお腹が痛い」<br>
               <br>
               O：<br>
               ・意識：Confusion(混乱/不穏)<br>
-              ・移動：変化なし<br>
-              ・BT 37.6℃ / RR 22<br>
-              ・SpO2 96% / HR 98 / sBP 122<br>
+              ・移動・歩行：変化なし<br>
+              ・BT 37.6℃ / RR 22 / SpO2 96% / HR 98 / sBP 122<br>
+              ・選択症状：激しい腹痛<br>
               <br>
-              A：準緊急。腹部症状の精査必要。<br>
-              P：Dr.報告・観察強化
+              A：既存のトリアージ基準に照らすと【レベル 3相当】の可能性<br>
+              P：所属施設のプロトコルに基づき対応。早めの報告・観察強化
             </div>
           </div>
         </div>
@@ -815,30 +814,16 @@ footer strong { color: rgba(255,255,255,0.7); }
 
     <div class="pricing-card">
       <div class="pricing-top">
-        <div class="plan-eyebrow">SUBSCRIPTION PLAN</div>
-        <div class="plan-name">解除コードで<br><span>フル機能</span>を開放</div>
-
-        <div class="plan-free-box">
-          <div class="plan-free-label">🆓 無料プラン（まずは試す）</div>
-          <div class="plan-free-val">記録生成：月5回まで</div>
-          <div class="plan-free-limit">トリアージ判定機能は無制限で使えます</div>
-        </div>
-
-        <div class="plan-paid-box">
-          <div class="plan-paid-label">⭐ 有料プラン（解除コード）</div>
-          <div class="plan-price"><sup>¥</sup>———<sub>/月</sub></div>
-          <div class="plan-price-note">記録生成 無制限 ／ 施設カスタマイズ ／ 全機能開放</div>
-        </div>
-
+        <div class="plan-eyebrow">HOW TO USE</div>
+        <div class="plan-name">インストール不要<br><span>ブラウザで</span>すぐ使える</div>
         <div class="plan-perks">
-          <div class="perk">SOAP記録生成が無制限に</div>
-          <div class="perk">施設ごとの取り決めメモを設定</div>
-          <div class="perk">インストール不要・ブラウザで動く</div>
-          <div class="perk">スマホ・タブレット・PC完全対応</div>
-          <div class="perk">チーム・施設単位でのご利用も可</div>
+          <div class="perk">症状タップとバイタルで緊急度の目安</div>
+          <div class="perk">施設規定に沿った対応の方向性を表示</div>
+          <div class="perk">SOAP形式の確認メモを作成・コピー</div>
+          <div class="perk">意識（ACVPU）の各段階に説明つき</div>
+          <div class="perk">スマホ・タブレット・PC対応</div>
         </div>
       </div>
-
       <div class="pricing-bottom">
         <div class="qr-canvas-wrap">
           <div id="qr-code"></div>
@@ -847,20 +832,19 @@ footer strong { color: rgba(255,255,255,0.7); }
           <div class="qr-label">QRコードを読み取ってアクセス</div>
           <a href="https://tacchibanana.github.io/DG-TRIAGE-TOOL/" target="_blank" class="qr-scan-link">
             <span class="qr-scan-icon">📲</span>
-            <span class="qr-scan-text">今すぐ無料で試す</span>
+            <span class="qr-scan-text">アプリを開く</span>
             <span class="qr-arrow">→</span>
           </a>
           <div class="qr-note">© 2026 TACCHIBANANA</div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
 <footer>
-  <strong>トリアージ・サポーター v2.0</strong>　｜　JTAS（日本版トリアージ基準）準拠　｜　© 2026 TACCHIBANANA
-  <br>⚠️ 本ツールは医療機器・診断プログラムではありません。電子メモツールとして判断の補助に使用してください。最終的な医療判断は必ず医師・所属施設のプロトコルに従ってください。
+  <strong>急変時対応サポート（トリアージ・サポーター v2.0）</strong>　｜　トリアージ基準の確認メモツール　｜　© 2026 ONMUSUBI / TACCHIBANANA
+  <br>⚠️ 本ツールは医療機器・診断プログラムではありません。入力データと一般的なトリアージ基準を照合する電子メモツールです。表示されるレベルは目安であり、最終的な医療判断は必ず医師・所属施設のプロトコルに従ってください。
 </footer>
 
 <script>
